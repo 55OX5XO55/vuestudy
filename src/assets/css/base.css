@@ -1,0 +1,479 @@
+/*@import "./normalize.css";*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+    font-family: 宋体, serif;
+}
+
+li {
+    list-style: none;
+}
+
+/*清除浮动代码,买没有理解*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.dj {
+    /*通常用于一直在显示区的元素*/
+    position: fixed;
+    top: 40%;
+    right: 0;
+    width: 82px;
+    height: 300px;
+    background-color: #44ee44;
+}
+
+.header {
+    line-height: 42px;
+    height: 42px;
+    /*background-color: aqua;*/
+    margin: 30px auto;
+}
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+    /*background-color: olivedrab;*/
+    text-align: center;
+}
+
+.nav {
+    float: left;
+    margin-left: 60px;
+}
+
+.nav ul li {
+    float: left;
+    /*块级元素*/
+    padding: 0 10px;
+}
+
+.nav ul li a {
+    /*a属于行内元素,不能指定高*/
+    display: block;
+    height: 42px;
+    /*设置padding来撑开盒子的左右边距,如果宽度写死,不同文字数量相差会很大*/
+    padding: 0 5px;
+    /*默认情况下a:link有指定下划线,权重为11,这里写为13*/
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid red;
+    /*指定字体颜色*/
+    color: red;
+}
+
+.search {
+    float: left;
+    width: 411px;
+    height: 42px;
+    /*background-color: cornflowerblue;*/
+    /*背景颜色会进行覆盖*/
+    /*padding-left: 50px;*/
+    /*颜色不会进行覆盖*/
+    margin-left: 50px;
+}
+
+.search input {
+    /*vue中行内块之间没有空隙,不用加漂浮,但是html中是有间隙的*/
+    float: left;
+    /*input是块元素*/
+    width: 345px;
+    height: 40px;
+    border: 1px solid blueviolet;
+    /*消除右边框*/
+    border-right: 0;
+    /*设置颜色*/
+    color: gray;
+    /*指定字体大小*/
+    font-size: 14px;
+    /*会撑大盒子*/
+    padding-left: 15px;
+    /*去掉input点击后的方框黑化*/
+    outline: none;
+}
+
+.search button {
+    /*vue中行内块之间没有空隙,不用加漂浮,但是html中是有间隙的*/
+    float: left;
+    /*button是行内块元素*/
+    width: 50px;
+    height: 42px;
+    /*button默认带边框*/
+    border: 0;
+    /*给按钮添加图片*/
+    background: url(../images/btn.png);
+}
+
+.user img {
+    /*图片和文字的对齐方式默认为底线对齐*/
+    /*将图片和文字垂直居中*/
+    vertical-align: middle;
+}
+
+.user {
+    float: right;
+    margin-right: 30px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: red;
+}
+
+.banner {
+    height: 421px;
+    background-color: #1c036c;
+}
+
+.banner .w {
+    height: 421px;
+    /*background-color: palegoldenrod;*/
+    /*背景图片*/
+    background: url("../images/banner.jpg") no-repeat top center;
+}
+
+.subnav {
+    /*为了course能浮上来*/
+    float: left;
+    width: 190px;
+    height: 421px;
+    /*背景颜色用于测试*/
+    /*background-color: palegoldenrod;*/
+    /*设置黑色半透明*/
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.subnav ul li {
+    /*li是块级元素*/
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+
+
+.subnav ul li a {
+    /*a是行内元素*/
+    font-size: 14px;
+    color: #fff;
+}
+
+.subnav ul li a span {
+    /*同级元素为块级元素才需要一浮全浮,如果同级元素为行内元素,不需要同级元素不需要浮*/
+    float: right;
+}
+
+.subnav ul li a:hover {
+    color: #00a4ff;
+}
+
+.course {
+    float: right;
+    width: 230px;
+    height: 300px;
+    background-color: #fff;
+    /*浮动的盒子不会有外边距合并问题*/
+    margin-top: 50px;
+}
+
+.course h2 {
+    height: 48px;
+    text-align: center;
+    background-color: #00a4ff;
+    line-height: 48px;
+    font-size: 18px;
+    color: #f6f6f6;
+}
+
+.course .bd {
+    padding: 0 20px;
+}
+
+.banner .w {
+    /*没有脱离标准流,任然占有位置*/
+    /*相对于自己在标准流中的位置,进行移动*/
+    position: relative;
+}
+
+.son {
+    /*绝对定位用于轮播图这样的*/
+    /*是脱离标准流的,不占有原本的位置*/
+    position: absolute;
+    /*子绝父相,要想用据对定位,父节点最好有定位*/
+    top: 172px;
+    left: 190px;
+    width: 41px;
+    height: 69px;
+    background-color: #00a4ff;
+}
+
+.bd ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.bd ul li a {
+    text-decoration: none;
+}
+
+.bd ul li a:hover * {
+    color: #00a4ff;
+}
+
+.bd ul li h4 {
+    font-size: 16px;
+    color: #44ee44;
+}
+
+
+.bd ul li p {
+    font-size: 14px;
+    color: #aa55aa;
+}
+
+
+.bd .more {
+    /*a是行内元素,没有宽度,高度*/
+    display: block;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    /*水平居中*/
+    text-align: center;
+    /*垂直居中*/
+    line-height: 38px;
+    color: #00a4ff;
+    /*文字大小*/
+    font-size: 16px;
+    /*文字粗细*/
+    font-weight: 700;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.bd .more:hover {
+    background-color: #00a4ff;
+    color: #f6f6f6;
+}
+
+/*精品推荐*/
+.goods {
+    height: 60px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    line-height: 60px;
+    /*盒子阴影:水平,垂直,模糊,距离, */
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.goods h3 {
+    float: left;
+    margin: 0 30px;
+    font-size: 18px;
+    color: #00a4ff;
+    /*改变光标移动到该元素上时的属性*/
+    cursor: default;
+}
+
+.goods ul {
+    float: left;
+}
+
+.goods ul li {
+    float: left;
+    /*文字数量不确定,不要使用固定宽度*/
+    /*width: 132px;*/
+}
+
+.goods ul li span {
+    float: left;
+}
+
+.goods ul li a {
+    float: right;
+    margin: 0 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.goods ul li a:hover {
+    color: #00a4ff;
+}
+
+.goods > a {
+    float: right;
+    margin-right: 50px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.goods > a:hover {
+    color: #00a4ff;
+}
+
+/*具体课程推荐*/
+.box {
+    margin-top: 15px;
+}
+
+.box-hd {
+    /*如果子元素有浮动,自己必须要设置高度,否则布局会乱*/
+    /*具体原因:盒子浮动不占用位置*/
+    height: 60px;
+    line-height: 60px;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 20px;
+}
+
+.box-hd a {
+    float: right;
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.box-hd a:hover {
+    color: #00a4ff;
+}
+
+/*这里运用了一个技巧,其实宽度超过了版心,刚好把5个li装下,但是,由于li外边距是透明的,所以看上去还是1200*/
+.box-bd ul {
+    width: 1225px;
+}
+
+/*如果多个元素属于同一个类,用li比较好*/
+.box-bd ul li {
+    position: relative;
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+}
+
+.box-bd ul li .mask {
+    display: none;
+    position: absolute;
+    /*就算是从左上角开始,也必须把top和left加上*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/*这一点要好好理解,父类被hover,会对子类进行设置*/
+.box-bd ul li:hover .mask {
+    display: block;
+}
+
+.box-bd ul li img {
+    /*如果图片的宽度超过父容器的大小,可以设置宽度为100%保持与父盒子一样宽*/
+    width: 100%;
+
+}
+
+.box-bd ul li h4 {
+    margin: 15px 15px;
+    font-size: 20px;
+}
+
+.box-bd ul li div span {
+    margin-left: 15px;
+    color: crimson;
+}
+
+.box-bd ul li:hover {
+    background-color: #ffffff;
+}
+
+.footer {
+    /*margin-top: 15px;*/
+    height: 415px;
+    background-color: #ffffff;
+}
+
+.footer .w {
+    /*会有外边距合并问题,改为内边距*/
+    /*margin-top: 35px;*/
+    padding-top: 35px;;
+}
+
+.copyright {
+    float: left;
+    margin-left: 30px;
+}
+
+.copyright p {
+    font-size: 12px;
+    color: #666;
+    margin: 20px 0 15px 0;
+}
+
+.copyright .app {
+    display: block;
+    width: 118px;
+    height: 33px;
+    border: 2px solid #00a4ff;
+    line-height: 33px;
+    text-align: center;
+    text-decoration: none;
+    color: #00a4ff;
+}
+
+.copyright .app:hover {
+    background-color: #00a4ff;
+    color: #f6f6f6;
+}
+
+.links {
+    float: right;
+}
+
+.links dl {
+    float: right;
+    margin-right: 40px;;
+}
+
+.links dl dt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.links dl dd a {
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+
+
+
+
