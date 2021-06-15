@@ -147,6 +147,7 @@ li {
 }
 
 .banner .w {
+    position: relative;
     height: 421px;
     /*background-color: palegoldenrod;*/
     /*背景图片*/
@@ -164,6 +165,25 @@ li {
     background: rgba(0, 0, 0, 0.3);
 }
 
+.subnav:hover ~ .son {
+    display: none;
+}
+
+
+.display {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 190px;
+    width: 1000px;
+    height: 100%;
+    background-color: #aa55aa;
+}
+
+.subnav ul {
+    padding: 10px 0;
+}
+
 .subnav ul li {
     /*li是块级元素*/
     height: 45px;
@@ -171,6 +191,29 @@ li {
     padding: 0 20px;
 }
 
+.subnav ul li:hover {
+    background-color: coral;
+}
+
+.subnav ul #item1:hover ~ #display1 {
+    display: block;
+    background-color: #44ee44;
+}
+
+#display1:hover {
+    display: block;
+    background-color: #00a4ff;
+}
+
+/*这个方法是无效的，只能获得往后的*/
+/*只能用js来实现*/
+#display1:hover#item1 {
+    background-color: coral;
+}
+
+.subnav ul #item2:hover ~ #display2 {
+    display: block;
+}
 
 .subnav ul li a {
     /*a是行内元素*/
