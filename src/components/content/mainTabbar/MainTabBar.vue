@@ -41,6 +41,7 @@ export default {
 }
 </script>
 
+<!--带scoped的style只在当前文件起作用-->
 <style scoped>
 
 </style>
